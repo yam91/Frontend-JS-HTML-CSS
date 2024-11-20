@@ -1,0 +1,9 @@
+th, td {
+    border: 1px solid black;
+ }
+
+.result {
+    width: 400px;
+    text-align: right;
+    padding-right: 5px;
+}

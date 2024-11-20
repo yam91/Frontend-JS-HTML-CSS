@@ -1,0 +1,40 @@
+<!-- BASIC HTML STRUCTURE -->
+
+<html>
+    <head>
+        <title> Site Title </title>
+    </head>
+
+    <body>
+        <!-- This is an HTML comment
+        
+        It look different than out JavaScript comments 
+        can can used across multiple line
+        -->
+
+    <body>
+<html>
+
+<!-- STANDARD HTML BOILERPLATE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title> Example Site </title>
+    <meta name="description" content="An exampl HTML site" />
+    <meta name="author" content="Zach Gollwitzer" />
+
+    <!-- This connects your CSS stylesheet -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+</head>
+
+<body>
+
+    <!-- This is where most of the HTML goes -->
+    
+    <!-- This connects your JacaScript to the HTML -->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,274 @@
+/*
+SELECTING/TARGETING HTML ELEMENTS IN CSS
+
+**** Selecting HTML Elements in CSS ****
+We can select and style html elements tag, class and id:
+
+- to access element tag, say p (paragraph), just write the html tag with no preceding operators:
+p {
+  color: red;
+}
+
+attention that this applies the css code to all instances/descendent (DOM language) of that tag in the document.
+
+- to access a class, use dot notation before class name:
+.para-elem {
+  color: red;
+}
+
+
+- to access an id, use # before id:
+#abc {
+  color: red;
+}
+
+**** CSS Combinators ****
+We can select HTML element in several different ways:
+1) Descendent Selectors 
+This code targets the li tags that are descendents of div with the class main-container, children and grandchildren and so on...
+
+.main-container li {
+  color: green;
+}
+
+2) Child Selectors (with ID selector #)
+Will select only the first direct children of the element with id="main".
+
+#main > p {
+  color: green;
+}
+
+
+3) Sibling Selectors 
+
+Adjacent sibling selector:
+Will target the first sibling of an element.
+Here it will target the p elements that are the first siblings to ul elements.
+
+ul + p {
+  color: green;
+}
+
+All sibling selector:
+Will target all siblings of an element.
+Here it will target the p elements that are siblings to ul elements.
+
+ul ~ p {
+  color: green;
+}
+
+In general: 
+The identifier furthest to the right is the actual selector (it can be 
+anything: id, tag or class selector) and it will target the html element 
+we want. Whatever is before it is called pre-selector.
+
+NOTE: once the html structure changes these rules break down.
+
+**** An Alternative Using Class ****
+
+Use discriptive names for classes to denote html elements you want with the same style.
+
+**** Other CSS Selectors ****
+
+If two differnt html elements, say a div and a p, have the same class name and we want to select one or the other:
+
+p[class="class_name"] {
+  color : blue;
+}
+
+OR
+
+div[class="class_name"] {
+  color : blue;
+}
+
+**** Sharing Styles and Having Distinct Styles ****
+
+The following shows two boxes that have some shared properties and some distinct properties:
+
+.box-1 {
+  width : 200 px;
+  height : 200 px;
+  border : 1px solid green;
+  padding: 20px;
+  color : green;
+}
+
+.box-2 {
+  width : 200 px;
+  height : 200 px;
+  border : 1px solid blue;
+  padding: 20px;
+  color : blue;
+}
+
+We can select both boxes and then write their shared properties, and write the distinct properties separately:
+
+.box-1, .box-2 {
+  width : 200 px;
+  height : 200 px;
+  padding: 20px;
+}
+
+.box-1 {
+  border : 1px solid green;
+  color : green;
+}
+
+.box-2 {
+  border : 1px solid blue;
+  color : blue;
+}
+
+We can also do it through the html class name.
+One html element, can have multiple classes.
+Let's say, for the sake of our example, that box-1 and box-2 share a class called box:
+
+<div class="box-1 box" </div>
+<div class="box-2 box" </div>
+
+We can then just target the box class in our CSS:
+
+.box {
+  width : 200 px;
+  height : 200 px;
+  padding: 20px;
+}
+
+and the rest as before.
+
+
+**** Pseudo Selectors ****
+In MDN documentation under Pseudo Classes.
+
+An example... let's say we have a button, in html:
+<button> Hover me </button>
+
+We style it in CSS as follows:
+button {
+  background-color: navy;
+  border: none;
+  padding: 20 px
+}
+
+Hover is a pseudo class, will change the style of the button when hovered:
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+**** Cascading Styles Sheet - CSS ****
+
+When we have multiple style sheets and multiple CSS rules 
+that complete against each other to style the same html element,
+one sheet will have precendence over the others and will eventually 
+style the element in question.
+
+--> What are the precedence rules in CSS?
+
+Example... in html:
+<div class="main-container">
+    <p class="main-text" id="first_paragraph"> First 
+        Paragraph of document </p>
+</div>
+
+p {
+    color: red;
+}
+
+.main-text {
+    color: blue;
+}
+
+#first-paragraph {
+    color: green;
+}
+
+Up to here the last rule takes precendence. (factor1 below)
+And there are, as we've seen plenty of ways to select an html 
+element in CSS.
+--> precedence rule apply to these selecting modes.
+
+Why would it ever happen? with external style sheet, mixed up
+with local sheets.
+
+There are two factors for determining CSS precedence:
+1) The location of the CSS rule in the file specifically the most 
+recenet one takes precedence. The last one essentially.
+
+The first factor will apply unless the sheets have different 
+specificity: 
+2) The specificity of the CSS rule:
+
+id selector - highest specificity because you cannot assign the same id to 
+            two or more eleements.
+class selector - intermediate specificity
+tag selector - lowest specificity
+
+Rules applied to combinator selectors --> calculate the specificity:
+1. Count number of ID selectors in CSS rule.
+2. Count number of class selectors in CSS rule.
+3. Count number of tag selectors in CSS rule.
+
+Applied to the following:
+ol #list-item-1 {
+    color: blue;
+}
+
+1 ID selector 
+0 class selector
+1 tag selector 
+Specificity of 101 --> takes precedence!
+
+#list-item-1 {
+    color: green;
+}
+
+1 ID selector
+0 class selector
+0 tag selector
+Specificity of 100
+
+**** Inline Styles ****
+
+Example:
+<p style="color: blue; padding: 10px;"> Some text </p>
+
+Inline Styles take precedence over everything else !
+
+**** Important Keyword ****
+
+Important keyword takes the utmost precedence if present in the sheet.
+
+Syntax:
+#id_name {
+    color: orange !important;
+}
+
+Advice: use inline and important keyword at a minimum.
+inline clutters the html code.
+use the important keyword if you are using some UI kit, that has a bunch
+of predefined styles for buttons and other stuff, if you want to override
+them.
+
+- Several css frameworks which do inline styling only. 
+
+
+**** CSS Properties for Style and Layout ****
+
+<div>
+<p> Some Text </p>
+</div>
+
+div {
+  background-color: navy;
+  color: white;
+  width: 200px;
+  height: 200px;
+  line-height: 200px; (text height)
+  text-align: center; (text horizontal position)
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+  border: 5px solid green;
+}
+*/

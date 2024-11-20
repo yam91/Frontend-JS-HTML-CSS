@@ -1,0 +1,158 @@
+/*
+**** Position Property ****
+Useful for navigation bars (<nav></nav>) for keeping them 
+at the top of the page at any time (even when scrolling down).
+
+Options:
+1. static (default) - 
+
+Absolute and relative positioning enables the z-index, which specifies
+what is on top of what:
+2. absolute - we use absolute in tandem with a relative position element 
+to be able to position (with top, below, left and right) the absolute element
+relative to the limits of its parent element.
+If no parent element is defined with relative position, the root (the sreen
+essenially) is used.
+
+3. relative -  using top, below, left and right we will change its position
+relative to itself. So for example, if we add 10px at the top it will go 10 px
+below where it was.
+
+4. fixed - takes the element outside of the html flow, in the sense
+that they do not actually take space in the html structure, but
+only visibly, it's almost like they are floating at a fixed position.
+
+When using it, we need to specify the offset position from its parent
+container with top, left, right, bottom.
+And also make sure that it does not cover other content/elements, use
+margin-top (and other variants of it) to space out the element subsequent 
+to a fixed element.
+
+5. sticky - newer, not supported in some browsers.
+
+* Note on width property input: 
+    px - in pixels,
+    % - percentage of total page width,
+    vw - viewport width, same as %.
+    vh - viewport height, same as %.
+
+    Through JS/DOM:
+    window.innerHeight
+    window.innerWidth
+
+
+**** CSS Measurement Units ****
+    pixels:
+    margin and padding 10-20 px
+    border 4-7 px
+    
+    percentages:
+    Perferred! why? because once the dimensions of the screen changes,
+    we want the size of the element to adapt to that, so we prefer relative 
+    dimensions with percentages over absolute dimensions with px.
+    
+    Percentages are relative to the size of their container. Recall an absolute 
+    element inside a relative container from above.
+    
+    Responsive Design.
+    
+    font-size units:
+    It can be in px, standard is 16px, but it's better to use em and rem.
+    Usually we will set the root (html) font-size to 16px and the elements
+    below it relative to that using:
+    em - relative to its parent container
+         1em = 100%
+         1.2em = 120% will make the font larger.
+    rem - relative to the font-size defined in root.    
+         1rem = 100%
+         1.2rem = 120%
+
+**** Custom Font Style ****
+4 relevant properties:
+- font-family: 
+Defined in html or body makes all elements inherit it. 
+
+Two arguments: font-family, fall-back-font
+The second argument defines the font that will be used in case the
+browser doesn't support your chosen font, denoted in the first argument.
+The font-family will be given in quotes if consists of two words, e.g.
+"Gill Sans".
+
+Importing styles from Google Fonts - copy the html link tag given for the 
+chosen font, and paste it in CodePen -> Settings -> HTML -> Stuff for <head>.
+Once that is done we can access the imported font using the "CSS rule to specify 
+families" also provided on the Google Fonts page, and copy-paste that into our CSS.
+
+
+Note, if writing outside of codepen, import directly into your html file:
+<html>
+    <head>
+        PASTE HERE LINK TAG FROM GOOGLE FONTS
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+</html>
+
+- font-weight: defines the text thickness.
+Attention: can only used imported thickness if using fonts imported from 
+Google Fonts.
+Seems to be in the range of 300-1000 more or less.
+
+**** Line Height ****
+line-height give us the separation between lines of text, if there is more
+than one line.
+Units are px, em or rem.
+
+**** Colors ****
+All colors are listed in the MDN under color value.
+Text color set with color, background color with background-color.
+
+3 ways to specify color:
+1. HEX (short for hexadecimal) e.g. #80eb34
+2. rgb(red, green, blue) e.g. rgb(128, 235,52) 
+where 128 is 80 in HEX, 235 is eb in HEX, and 52 is 34 in HEX.
+3. rgba(red, green, blue, opacity) e.g. rgba(128, 235,52, 1) 100% opacity,
+or rgba(128, 235,52, 0.5) 50% opacity.
+
+Recommended Adobe Color.
+
+**** Background Properties ****
+
+background-image: url();
+background-size: cover;
+background-repeat: no-repeat;
+background-position: right;
+
+text-align: center
+
+**** Short-Hand CSS ****
+
+margin for example is short handed for margin-top, margin-bottom,
+margin-right and margin-left, applies the given value to all four.
+To specify different values for each we can either:
+margin: 20px 5px 10px 20px
+or 
+margin-top: 20px
+margin-right: 5px
+margin-bottom: 10px
+margin-left: 20px
+
+Another example is border.
+border: 5px solid black 
+
+is essentially setting 3 properties all at once:
+border-width: 5px
+border-style: solid
+border-color: black
+
+**** Box Shadow ****
+
+box-shadow akes 5 arguments- 4 corners and color. 
+Use simulators online to get the desired effect, e.g.:
+https://www.cssmatic.com/box-shadow
+
+Use the following to overwrite any sub-structures spills onto the container shape:
+    overflow: hidden;
+
+For round corners:
+    border-radius: 5px;
+*/

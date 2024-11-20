@@ -1,0 +1,132 @@
+html {
+    box-sizing: border-box;
+    font-family: "Karla", sans-serif;
+    font-size: 16px;
+  }
+  
+  *, *:before, *:after{
+    box-sizing: inherit;
+  }
+  
+  #card {
+    box-shadow: 2px 3px 7px 0px rgba(0,0,0,0.35);
+    border-radius: 5px;
+  }
+  
+  #top, #bottom {
+    width: 100%;
+  }
+  
+  #top {
+   padding: 20px;
+   padding-top: 10px;
+  }
+  
+  #bottom {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #bottom-left, #bottom-right{
+    padding: 20px;
+    padding-top: 0px;
+  }
+  
+  #bottom-right{
+    background-color: hsl(179, 62%, 43%);
+    opacity: 0.78;
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+  
+  #bottom-left{
+    background-color: hsl(179, 62%, 43%);
+  }
+  
+  #sign-up {
+    width: 100%;
+    align-items: center;
+    height: 40px;
+    font-family: inherit;
+    font-weight: 700;
+    color: hsl(204, 43%, 93%);
+    background-color: hsl(71, 73%, 54%);
+    border-radius: 4px;
+    border: none;
+  }
+  
+  #sign-up:hover {
+    background-color: hsl(60, 73%, 54%);
+  }
+  
+  #sign-up:hover span {
+    display: none;
+  }
+  
+  #sign-up:hover:before {
+    content: "Click To Proceed !";
+  }
+  
+  #top > h2 {
+    color: hsl(179, 62%, 43%);
+  }
+  
+  #top > h3 {
+    color: hsl(71, 73%, 54%);
+  }
+  
+  #list {
+    padding: 0;
+    list-style: none;
+   }
+  
+  #list > li {
+    font-size: 15px;
+    font-weight: 400;
+    color: hsl(204, 43%, 85%);
+    margin: 5px;
+  }
+  
+  #top > p {
+    color: hsl(218, 22%, 67%);
+    margin: 5px;
+  }
+  
+  #bottom-left > p, h3, div {
+    color: hsl(204, 43%, 93%);
+  }
+  
+  #bottom-left > p {
+    margin-top: 7px;
+    margin-bottom: 40px;
+    color: hsl(204, 43%, 93%);
+  }
+  
+  #bottom-right > h3 {
+    color: hsl(204, 43%, 93%);
+  }
+  
+  #price-month{
+    display: flex;
+    align-items: center
+  }
+  
+  #per-month{
+    color: hsl(204, 43%, 85%);
+    margin-left: 5px;
+  }
+  
+  #price {
+    font-weight: 700;
+    font-size: 32px;
+  }
+  
+  @media (min-width: 750px) {
+    #bottom {
+      flex-direction: row;
+    }
+    #bottom-left, #bottom-right {
+    flex-basis: 50%;
+    margin: 0px;
+    }
+  }

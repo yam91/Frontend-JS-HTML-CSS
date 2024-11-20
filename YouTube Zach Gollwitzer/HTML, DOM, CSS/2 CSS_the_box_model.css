@@ -1,0 +1,75 @@
+/*
+
+DISCUSSED IN PARTICULAR: DISPLAY AND BOX-SIZING PROPERTIES
+**** HTML Elements and CSS Display Types ****
+Each html element has a default display type.
+For example: a paragraph (p) default display is block,
+and so is for a div, but a span element has an inline 
+display as defauly.
+
+One can change the display type, through the CSS
+display property.
+
+**** BLOCK ****
+Width - will occupy the full width of the parent element 
+        its part of (<body> or something else).
+Height - height of content, whatever it is displying.
+
+Does not share the line with other elements.
+Respects its height and width inputs.
+
+**** INLINE ****
+Width and height - will occupy the space needed to display
+to content within them. and therefore inline do not respect 
+height and width inputs.
+
+Shares the line with other elements if can.
+
+*** INLINE BLOCK ****
+Essentially an inline that now respects width and height
+inputs.
+
+*** CSS Grid and Flex Box ****
+
+
+
+**** Content Box vs. Border Box ****
+Content Box is the deafult for all html elements.
+It consists of width x height of content, padding, border
+width and margin (which does not go in the element size).
+
+We can change to the broder box adding the property to the
+CSS code:
+box-sizing: border-box;
+
+What border-box does is change the calculation of the total
+width and total height of the element in question: the height 
+will only the height of the content, unlike in content-box
+where it is: width + 2 x padding + 2 x border.
+
+But we still have padding and border in the border-box.
+What it would mean to increase padding is that it will come
+on the expense of the content size, and so the text will 
+appear further inside the box, unlike in the content-box 
+where adding padding will necessarily increase the size of
+the box altogether.
+
+**** Inherting CSS Properties ****
+
+with html we can define the root:
+html {
+    box-sizing: border-box;
+}
+
+* selects everthing in a file.
+To make everything in the file inherit the property defined
+in the root we use inherit in the property of interest:
+
+* ,*:before, *:after {
+    box-sizing: inherit;
+}
+
+what is *:before/*:after?? it selects all :before and :after pseudo-
+elements, those inserted into the html flow by some actions like hover
+for example.
+*/

@@ -1,0 +1,165 @@
+/*
+**** intro ****
+
+Examples for non-rsponsive design:
+- small font-size,
+- long rows,
+- nav-bar with widlely spaced options,
+- multiple columns on mobile device screen.
+
+Solutions:
+- Text shouldn't occupy the full width of the 
+screen --> limit width and center.
+- In a narrow screen f a mobile phone we want to 
+display only one column.
+
+**** keep design and coding separate ****
+
+Before writing CSS code:
+1. Design first.
+
+2. Look for completed designs for inspiration, 
+e.g. front mentor, where we get Desktop and Mobile 
+mock-ups.
+
+3. Use tools for wire framing and mock-ups:
+Figma
+AdobeXD
+Sketcher
+
+Wire-frame is only layout, no graphics.
+Mock-up is a full design of layout and graphics.
+
+**** mobile first vs. desktop first ****
+
+Media requests on CSS are essentially breakpoints:
+We set a condition on something like the screen width, 
+where for different ranges, different CSS rules will 
+apply.
+
+What mobile first and desktop first means is basically 
+whether the styling for mobile or desktop comes first in 
+the code, before the meadia query/breakpoint styling.
+
+mobile first --> min-width, increasing screen width
+desktop first --> max-width, decreasing screen width
+
+Screen size width ranges:
+Mobile 320-480 px
+Tablet 600-800 px
+Laptop 1024-1440 px
+Desktop 2500 px
+
+*For more specific values, search online.
+
+Random:
+window.innerWidth gives the width of the current window
+
+width:auto
+assumes max width of container.
+
+**** CSS frameworks ****
+Frameworks offer a grid and layout systems to which we pass 
+pre-defined classes.
+
+Bootstrap - mobile first framework:
+https://getbootstrap.com/docs/5.0/layout/breakpoints/
+
+To determine the appropriate number of breakpoints think about
+the devices in which you want to have your app/web.
+
+**** @media and other at-rule statements ****
+
+Syntax:
+    @media (min-width: 756px) {
+    }
+Equivalent to:
+    @media all and (min-width: 756px) {
+    }
+
+@media is one out of several at-rules, which are CSS statements that 
+instructs CSS how to behave.
+@media specifically is used to apply part of a style sheet based 
+on the result of one or more media queries, which is what we pass 
+to it in parentheses, conditions which behave as breakpoints:
+
+We can specify the media type:
+Print preview:
+    @media print and (min-width: 756px) {
+    }
+Speech device:
+    @media speech and (min-width: 756px) {
+    }
+Screen device:
+    @media screen and (min-width: 756px) {
+    }
+
+The "and" is the AND logical operator, checking two conditions:
+    @media 
+        only screen 
+        and (min-width: 400px)
+        and (max-width: 600px) {
+            ...style...
+        }
+
+@supports is another at-rule which let us specify style depending
+on browser's support for more specific CSS features, e.g.:
+    @supports (display:grid) {
+            div {
+            display : grid;
+        }
+    }
+    
+     @supports not (display:grid) {
+            div {
+            float : right;
+        }
+    }
+
+**** Example ****
+**** varying number of images for mobile, tablet and desktop *****
+Attention: images are inline in html, so they are automatically places
+one next to the other to fill up the screen, and whatever doesn't fit
+in will go to the next line.
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+Mobile-first, mobile default, below 576px: 
+img {
+    width: 100%;
+}
+
+For intermediate screen size:
+@media (min-width:576px) {
+    img {
+    width: 49%;
+    }    
+}
+
+For desktop screen size:
+@media (min-width:992px) {
+ img {
+    width: 24%;
+    }   
+}
+
+ATTENTION: 
+1. Order matters ! Last query gets priority if two 
+   are true !
+2. Put media queries at the bottom of the CSS code.
+   For the same reason as in one, if default style is put after 
+   conditions, none of the conditions will ever be executed, last 
+   code takes over !
+3. mobile first --> min-width, increasing screen width
+   desktop first --> max-width, decreasing screen width
+
+   Usually we use mobile first !
+   Becuase usually mobile layout will look good on a desktop
+   layout, less adjustments, less code. 
+*/
